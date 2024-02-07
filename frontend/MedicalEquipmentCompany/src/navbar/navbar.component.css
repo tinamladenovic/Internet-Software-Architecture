@@ -1,0 +1,32 @@
+.navbar {
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(10, 10, 136);
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0;
+    z-index: 1000;
+    top: 0;
+    display: flex;
+}
+
+.mec {
+    font-size: 1.5vw;
+    font-weight: 700;
+    color: white !important;
+}
+
+.navButton {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400!important;
+    color: white!important;
+    font-size: larger;
+}
+
+.navbarList {
+    display: flex;
+    gap: 1em;
+    margin-right: 3em;
+}

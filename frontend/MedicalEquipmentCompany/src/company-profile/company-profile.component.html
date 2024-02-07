@@ -1,0 +1,42 @@
+<div class="div-profile" *ngIf="companyProfile">
+  <div class="profileWrapper">
+    <div>
+      <h2>{{ companyProfile.name }}</h2>
+      <p><strong>Description:</strong> {{ companyProfile.description }}</p>
+      <p>
+        <strong>Address:</strong> {{ companyProfile.street }},
+        {{ companyProfile.city }}, {{ companyProfile.country }}
+      </p>
+      <p>
+        <strong>Average Rating:</strong>
+        {{ companyProfile.averageCompanyRating }}
+      </p>
+      <div class="workingHours">
+        <div class="workingHour" *ngFor="let item of workingHours; index as i">
+          <h5>{{ daysdict[i] }}</h5>
+          <h5>{{ getHours(item.startTime) }}</h5>
+          <h5>{{ getHours(item.endTime) }}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="datepickSide" >
+        <h5>Radni Kalendar</h5>
+        <input type="date" name="" placeholder="Radni Kalendar" id="">
+<!--         <input [matDatepicker]="myDatepicker">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker> -->
+    </div>
+  </div>
+
+  <div>
+    <app-company-equipment [company]="companyProfile"></app-company-equipment>
+  </div>
+  <div class="pickupWrapper" *ngIf="finishLoading">
+    <div class="equipPickup" *ngFor="let item of equipPickups">
+      <h5>{{ item.dateAndTime.toLocaleString("en-GB") }}</h5>
+      <br />
+      <h5>{{ item.duration + "h" }}</h5>
+      <!-- <button class="pickup" (click)="onReservePickup(item)">Reserve</button> -->
+    </div>
+  </div>
+</div>

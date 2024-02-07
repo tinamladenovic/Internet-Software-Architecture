@@ -1,0 +1,26 @@
+<form (ngSubmit)="submitForm()" #equipmentPickupForm="ngForm">
+  <div>
+    <label for="pickupDate">Date:</label>
+    <input type="date" id="pickupDate" name="pickupDate" [(ngModel)]="pickupDate" required>
+  </div>
+
+  <div>
+    <label for="pickupTime">Time:</label>
+    <input type="time" id="pickupTime" name="pickupTime" [(ngModel)]="pickupTime" required>
+  </div>
+
+  <div>
+    <label for="duration">Duration:</label>
+    <input type="number" min="1" max="9"  id="durationHours" name="durationHours" [(ngModel)]="durationHours" required>
+  </div>
+
+  <div>
+    <select name="selectedAdmin" required [(ngModel)]="selectedAdmin">
+      <option disabled selected="true" [value]="undefined">Choose admin</option>
+      <option *ngFor="let admin of admins" [value]="admin.id">{{admin.name + ' ' + admin.surname}}</option>
+    </select>
+  </div>
+
+
+  <button type="submit" [disabled]="!equipmentPickupForm.valid">Add Pickup</button>
+</form>

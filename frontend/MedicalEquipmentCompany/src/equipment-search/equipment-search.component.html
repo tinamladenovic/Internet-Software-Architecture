@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <div class="inputs">
+      <input
+        matInput
+        [(ngModel)]="searchInput.name"
+        (ngModelChange)="searchEquipment()"
+        type="text"
+        placeholder="Search equipment here"
+      />
+    </div>
+    <div class="companyList">
+      <div class="company" *ngFor="let equipment of equipments">
+        <h4>{{ equipment.name }}</h4>
+        <h4>{{ equipment.description }}</h4>
+      </div>
+    </div>
+  </div>
+  

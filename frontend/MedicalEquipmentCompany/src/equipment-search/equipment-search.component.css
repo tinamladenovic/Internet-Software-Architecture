@@ -1,0 +1,51 @@
+/* Osnovni stilizovani elementi */
+
+.wrapper {
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+  }
+  
+  .inputs {
+    margin-bottom: 10px;
+    width: auto;
+  }
+  
+  .inputs input {
+    padding: 8px;
+    width: auto;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .companyList {
+    display: flex;
+    justify-content: left; /* Opciono: centriranje kompanija unutar kontejnera */
+    margin:10px;
+    gap: 20px; /* Opciono: razmak između kompanija */
+  }
+  
+  .company {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    /* Promenjen display u inline-block */
+    display: inline-block;
+    width: 500px; /* Da bi bile u tri kolone */
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Opciono: dodatni razmak između kompanija */
+  }
+  
+  /* Stilizacija naslova i opisa */
+  
+  .company h4 {
+    margin: 5px 0;
+    font-size: 18px;
+  }
+  
+  .company p {
+    margin: 5px 0;
+  }
+  

@@ -1,0 +1,24 @@
+<div class="navbar">
+<div class="navbarItem mec">
+    <button class="mec" mat-button [routerLink]="['']">Medical Equipment Company</button>
+</div>
+<div class="navbarList">
+
+    <div class="navbarItem">
+        <button class="navButton" *ngIf="user && user.role === 'registreduser'"  mat-button [routerLink]="['UserHome']">Home</button>
+    </div>
+    <div class="navbarItem">
+        <button class="company navButton" mat-button [routerLink]="['company']">Company</button>
+    </div>
+    <div class="navbarItem">
+        <button class="equipment navButton" mat-button [routerLink]="['equipment']">Equipment</button>
+    </div>
+    <div class="navbarItem">
+        <button class="navButton" *ngIf="user && user.role == 'companyadministrator'" mat-button [routerLink]="['simulator']">Simulator</button>
+    </div>
+    <div class="navbarItem">
+        <button class="navButton" *ngIf="user && user.username === ''" mat-button [routerLink]="['login']">Log In</button>
+      <button class="navButton" *ngIf="user && user.username !== ''" mat-button (click)="onLogout()">Logout</button>
+    </div>
+</div>
+</div>

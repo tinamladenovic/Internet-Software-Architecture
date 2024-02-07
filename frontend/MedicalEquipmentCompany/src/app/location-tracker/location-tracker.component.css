@@ -1,0 +1,19 @@
+.map { height: 350px; width: 100%; }
+div.wrapper {
+    width: 100%;
+}
+div.control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15em;
+    gap: 1em;
+    width: 100%;
+    margin-top: 1em;
+}
+button {
+    width: 200px;
+}
+input {
+    width: 200px;
+}

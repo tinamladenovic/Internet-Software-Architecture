@@ -1,0 +1,19 @@
+﻿namespace MedicalEquipmentCompany.Model.Result
+
+
+{
+    public abstract class Entity
+    {
+        public long Id { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Entity entity && Id.Equals(entity.Id);
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+    }
+}

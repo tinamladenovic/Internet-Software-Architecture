@@ -1,0 +1,22 @@
+<div id="dates">
+    <div id="dates-details">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date and time</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let d of reservations" >
+                        <td>{{d.reservationDate | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>
+                            <button class="navButton" (click)="deleteReservation(d)">Cancel</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

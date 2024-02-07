@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div class="searchInputs">
+    <input
+      matInput
+      [(ngModel)]="searchInput.name"
+      (ngModelChange)="searchCompanies()"
+      type="text"
+      placeholder="Search companies here"
+    />
+    <input
+      matInput
+      [(ngModel)]="searchInput.address"
+      (ngModelChange)="searchCompanies()"
+      type="text"
+      placeholder="Search company by address here"
+    />
+  </div>
+  <div class="filterInputs" *ngIf="searchDone">
+    <input
+      matInput
+      [(ngModel)]="min"
+      (ngModelChange)="filterCompanies()"
+      type="number"
+      placeholder="Min"
+    />
+    <input
+      matInput
+      [(ngModel)]="max"
+      (ngModelChange)="filterCompanies()"
+      type="number"
+      placeholder="Max"
+    />
+  </div>
+  <div class="companyList">
+    <div class="company" *ngFor="let company of filteredCompanies">
+      <h4>{{ company.name }}</h4>
+      <h4>{{ company.description }}</h4>
+      <h4>{{ company.city}}</h4>
+      <button class="navButton" *ngIf="user && user.username !== ''"  (click)="viewCompanyProfile(company.id)" >View Profile</button>
+      <button class="navButton" *ngIf="user && user.role == 'companyadministrator'" [routerLink]="['/equipmentPickup/'+company.id]" routerLinkActive="router-link-active"  >Add Pickup</button>
+    </div>
+  </div>
+</div>
