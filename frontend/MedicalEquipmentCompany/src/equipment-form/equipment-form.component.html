@@ -1,0 +1,25 @@
+<form [formGroup]="equipmentForm" class="form-container">
+  <div>
+    
+    <label for="name">Name</label>
+    <input id="name" formControlName="name" type="text" />
+
+    <label for="type">Type</label>
+    <input id="type" formControlName="type" type="text"/>
+
+    <label for="quantityInStock">Quantity</label>
+    <input id="quantityInStock" formControlName="quantityInStock" type="number"/>
+
+    <label for="price">Price</label>
+    <input id="price" formControlName="price" type="number"/>
+
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" rows="5"></textarea>
+
+    <label for="companyId">Company ID</label>
+    <input id="companyId" formControlName="companyId" type="number"/>
+
+    <button *ngIf="!shouldEdit" color="primary" type="submit" (click)="addEquipment()" mat-raised-button>Done</button>
+    <button *ngIf="shouldEdit" color="primary" type="submit" (click)="updateEquipment()" mat-raised-button>Done</button>
+  </div>
+</form>

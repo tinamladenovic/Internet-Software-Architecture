@@ -1,0 +1,40 @@
+<div class="equipment">
+  <h1>Equipment Reservations</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Reservation Date</th>
+        <th>Status</th>
+        <th>Reserved Equipment</th>
+        <th>Equipment Count</th>
+        <th>Equipment Pickup</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{ reservation.userId }}</td>
+        <td>{{ reservation.reservationDate | date }}</td>
+        <td>{{ getStatusText(reservation.reservationStatus) }}</td>
+        <td>{{ reservation.reservedEquipment.join(', ') }}</td>
+        <td>{{ reservation.equipmentCount.join(', ') }}</td>
+        <td>{{ reservation.equipmentPickup }}</td>
+        <td>
+          <button *ngIf="['Completed'].includes(getStatusText(reservation.reservationStatus))">
+            <span>&#10003;</span>
+          </button>
+
+          <button *ngIf="['Expired', 'Canceled'].includes(getStatusText(reservation.reservationStatus))">
+            <span>&#10006;</span>
+          </button>
+
+          <button *ngIf="!['Completed', 'Expired', 'Canceled'].includes(getStatusText(reservation.reservationStatus))" (click)="updateEquipmentReservation(reservation)">Complete</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>

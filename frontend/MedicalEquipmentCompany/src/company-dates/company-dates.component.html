@@ -1,45 +1,26 @@
 <div id="dates">
+    <p>Dates</p>
+    <hr>
     <div id="dates-details">
-      <h1>Possible reservation dates</h1>
-      <div class="dates-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Date and time</th>
-              <th>Duration</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let d of dates">
-              <td>{{ d.dateAndTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
-              <td>{{ d.duration }}</td>
-              <td>
-                <button class="navButton" (click)="confirmReservation(d)">Reserve</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  
-    <div id="reservation-details" *ngIf="selectedReservation">
-      <h2>Reservation details:</h2>
-      <p>Date and Time: {{ selectedReservation.dateAndTime| date:'yyyy-MM-dd HH:mm:ss' }}</p>
-      <p>Company: {{ company.name }}</p>
-      <p>Equipment: {{ equipment.name }}</p>
-      <form #reservationForm="ngForm" (ngSubmit)="makeReservation()">
         <div>
-          <input [(ngModel)]="count" name="count" type="number" placeholder="Equipment count" required min="1" (input)="validateCount()" />
-          <button class="navButton" type="submit" [disabled]="!isCountValid">Confirm</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date and time</th>
+                        <th>Duration</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let d of dates">
+                        <td>{{d.dateAndTime}}</td>
+                        <td>{{d.duration}}</td>
+                        <td>
+                            <button class="navButton" (click)="makeReservation(d)">Reserve</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div *ngIf="!isCountValid && reservationForm.controls['count']?.dirty" style="color: red;">
-          Invalid count. Please enter a valid count greater than 0.
-        </div>
-        <div *ngIf="!countValid && reservationForm.controls['count']?.dirty" style="color: red;">
-          There's not enough equipment. Available count is: {{equipment.quantityInStock}}
-        </div>        
-      </form>
     </div>
-  </div>
-  
+</div>

@@ -1,0 +1,29 @@
+<div>
+    <h1>Equipment Pickups</h1>
+</div>
+
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Administrator ID</th>
+        <th>Company ID</th>
+        <th>Date and Time</th>
+        <th>Duration</th>
+        <th>Is Reserved</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pickup of equipmentPickups">
+        <td>{{ pickup.id }}</td>
+        <td>{{ pickup.administratorId }}</td>
+        <td>{{ pickup.companyId }}</td>
+        <td>{{ pickup.dateAndTime | date }}</td>
+        <td>{{ pickup.duration }}</td>
+        <td [ngStyle]="{'color': pickup.isReserved ? 'green' : 'red', 'font-weight': 'bold'}">
+            {{ pickup.isReserved ? 'Yes' : 'No' }}
+          </td>
+      </tr>
+    </tbody>
+  </table>
+  

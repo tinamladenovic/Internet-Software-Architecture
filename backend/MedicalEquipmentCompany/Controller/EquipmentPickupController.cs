@@ -4,7 +4,6 @@ using MedicalEquipmentCompany.Model.Result;
 using MedicalEquipmentCompany.Service;
 using MedicalEquipmentCompany.Service.Base;
 using MedicalEquipmentCompany.Service.Interface;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedicalEquipmentCompany.Controller
@@ -41,7 +40,6 @@ namespace MedicalEquipmentCompany.Controller
             return CreateResponse(result);
         }
 
-        [Authorize(Policy = "registredUserPolicy")]
         [HttpPost("search/dates")]
         public ActionResult<PagedResult<EquipmentPickupDto>> Search([FromBody] CompanyDto company)
         {

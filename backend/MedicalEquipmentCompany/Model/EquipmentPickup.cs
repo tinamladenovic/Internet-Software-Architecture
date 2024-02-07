@@ -6,14 +6,14 @@ namespace MedicalEquipmentCompany.Model
     {
         public long AdministratorId { get; private set; }
         public long CompanyId { get; private set; }
-        public string DateAndTime { get; private set; }
+        public DateTime DateAndTime { get; private set; }
         public int Duration { get; private set; }
         public bool IsReserved { get; private set; }
 
 
         public EquipmentPickup () { }
 
-        public EquipmentPickup( long administratorId, long companyId, string dateAndTime, int duration, bool isReserved)
+        public EquipmentPickup( long administratorId, long companyId, DateTime dateAndTime, int duration, bool isReserved)
         {
             AdministratorId = administratorId;
             CompanyId = companyId;

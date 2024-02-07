@@ -12,6 +12,6 @@ namespace MedicalEquipmentCompany.Service.Interface
         Result<UserDto> Update(UserDto user);
         Result<UserDto> GetByEmail(User user);
         Result<UserDto> Get(int id);
-
+        Result<UserDto> GetById(int id);
     }
 }

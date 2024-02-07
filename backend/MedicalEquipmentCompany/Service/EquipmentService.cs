@@ -60,22 +60,7 @@ namespace MedicalEquipmentCompany.Service
             return Result.Ok(pagedResult);
         }
 
-        public Result<bool> CheckEquipmentCount(int equipmentId, int wishedCount)
-        {
-            var equipment = Get(equipmentId);
-            if (equipment.Value == null)
-            {
-                return Result.Fail<bool>("Equipment not found");
-            }
+       
 
-            if (equipment.Value.QuantityInStock >= wishedCount)
-            {
-                return Result.Ok(true);
-            }
-            else
-            {
-                return Result.Ok(false);
-            }
-        }
     }
 }

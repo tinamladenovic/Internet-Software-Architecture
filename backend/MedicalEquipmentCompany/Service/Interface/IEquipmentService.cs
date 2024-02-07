@@ -13,6 +13,5 @@ namespace MedicalEquipmentCompany.Service.Interface
         Result Delete(int id);
         Result<PagedResult<EquipmentDto>> Search(EquipmentSearchDto companySearch);
         public Result<PagedResult<EquipmentDto>> SearchByCompany(int id);
-        Result<bool> CheckEquipmentCount(int equipmentId, int wishedCount);
     }
 }

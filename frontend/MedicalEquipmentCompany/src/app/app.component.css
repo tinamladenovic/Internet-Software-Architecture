@@ -7,8 +7,6 @@ body {
 div {
     margin-top: 69px;
     margin-bottom: 100px;
-    display: flex;
-    flex-direction: column;
 }
 
 xp-navbar {

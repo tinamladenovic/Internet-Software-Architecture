@@ -1,0 +1,22 @@
+<div>
+<table>
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let workingHours of companyWorkingHours">
+        <td>{{ getDayOfWeekText(+workingHours.dayOfWeek) }}</td>
+        <td>{{ getHours(workingHours.startTime) }}</td>
+        <td>{{ getHours(workingHours.endTime) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  
+
+</div>

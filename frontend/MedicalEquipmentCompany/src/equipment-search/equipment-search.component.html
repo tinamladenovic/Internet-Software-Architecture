@@ -1,18 +1,62 @@
-<div class="wrapper">
-    <div class="inputs">
-      <input
-        matInput
-        [(ngModel)]="searchInput.name"
-        (ngModelChange)="searchEquipment()"
-        type="text"
-        placeholder="Search equipment here"
-      />
-    </div>
-    <div class="companyList">
-      <div class="company" *ngFor="let equipment of equipments">
-        <h4>{{ equipment.name }}</h4>
-        <h4>{{ equipment.description }}</h4>
+<div id="equipment">
+  <h1 id="title">Equipment</h1>
+
+  <div id="equipment-details" class="flex-container">
+    <div class="table-container">
+      <div class="wrapper">
+        <div class="inputs">
+          <input matInput [(ngModel)]="searchInput.name" (ngModelChange)="searchEquipment()" type="text"
+            placeholder="Search equipment here" />
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Description</th>
+              <th>Company ID</th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let equipment of equipments">
+              <td>{{ equipment.id }}</td>
+              <td>{{ equipment.name }}</td>
+              <td>{{ equipment.type }}</td>
+              <td>{{ equipment.quantityInStock }}</td>
+              <td>{{ equipment.price }}</td>
+              <td>{{ equipment.description }}</td>
+              <td>{{ equipment.companyId }}</td>
+              <td>
+                <button class="delete-button" (click)="deleteEquipment(equipment.id || 0)">
+                  <span>&#10006;</span>
+                </button>
+              </td>
+                <td>
+                <button class="edit-button" (click)="onEditClicked(equipment)">
+                  <span>&#9998;</span>
+                </button>
+                </td>
+              
+              <td>
+                <button class="add-button" (click)="onAddClicked()">
+                  <span>&#43;</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+
+    <!-- Move app-equipment-form outside the table -->
+    <app-equipment-form *ngIf="shouldRenderEquipmentForm" [shouldEdit]="shouldEdit" [equipment]="selectedEquipment" (equimpentUpdated)="getEquipment()"></app-equipment-form>
   </div>
-  
+</div>

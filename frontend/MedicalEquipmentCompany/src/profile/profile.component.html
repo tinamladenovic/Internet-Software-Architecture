@@ -1,0 +1,10 @@
+<div class="profile-container" *ngIf="admins && loggedInUserId === admins.id">
+  <h1>Company Administrator Profile</h1>
+  <div class="profile-details">
+    <p><strong>ID:</strong> {{ admins.id }}</p>
+    <p><strong>Name:</strong> {{ admins.name }}</p>
+    <p><strong>Surname:</strong> {{ admins.surname }}</p>
+    <p><strong>Email:</strong> {{ admins.email }}</p>
+    <p><strong>Company ID:</strong> {{ admins.companyId }}</p>
+  </div>
+</div>

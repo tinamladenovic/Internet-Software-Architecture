@@ -9,6 +9,5 @@ namespace MedicalEquipmentCompany.Repository.Interface
         List<Account> GetAll();
         Account Get(int id);
         Account Update(Account account);
-        public Account UpdatePenalties(Account updatedEntity);
     }
 }

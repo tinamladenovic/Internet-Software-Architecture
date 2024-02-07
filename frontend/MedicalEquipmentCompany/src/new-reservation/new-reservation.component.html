@@ -1,0 +1,11 @@
+<div class="div-profile" *ngIf="companyProfile">
+    <div class="pickupWrapper" *ngIf="finishLoading">
+      <div class="equipPickup" *ngFor="let item of equipPickups">
+        <h5>{{ item.dateAndTime.toLocaleString("en-GB") }}</h5>
+        <br />
+        <h5>{{ item.duration + "h" }}</h5>
+        <button class="pickup" (click)="onReservePickup(item)">Reserve</button> 
+      </div>
+    </div>
+  </div>
+  

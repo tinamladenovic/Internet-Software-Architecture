@@ -13,6 +13,6 @@
         public long UserId { get; set; }
         public bool IsActivate { get; set; }
         public string Enterprise { get;  set; } 
-        public int Penalties { get; set; }
+        public int Penalites { get; set; }
     }
 }

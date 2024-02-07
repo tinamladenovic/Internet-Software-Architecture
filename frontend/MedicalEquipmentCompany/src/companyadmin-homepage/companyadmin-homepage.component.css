@@ -1,0 +1,39 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh; /* Visina kontejnera na celu visinu ekrana */
+}
+
+.dashboard-buttons-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.dashboard-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-column a {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100%; /* Širina dugmadi će biti prilagođena širini roditeljskog kontejnera */
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #185597;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

@@ -8,14 +8,14 @@ namespace MedicalEquipmentCompany.Data
         {
             services.AddCors(options =>
             {
-                options.AddPolicy("_corsPolicy",
-                    builder => builder
-                        .WithOrigins("http://localhost:4200") // Allow requests from this origin
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials()
-                        );
-                    
+                options.AddPolicy(name: corsPolicy,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200") // Allow requests from this origin
+                             .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization, "access_token")
+                             .WithMethods("GET", "PUT", "POST", "PATCH", "DELETE", "OPTIONS")
+                             .AllowCredentials();
+                    });
             });
             return services;
         }

@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppService } from '../app.service';
 import { User } from '../model/user.model';
 
+
+
 @Component({
   selector: 'xp-navbar',
   standalone: true,
@@ -16,6 +18,7 @@ import { User } from '../model/user.model';
 })
 export class NavbarComponent implements OnInit {
 
+  
   user: User | undefined;
 
   constructor(private authService: AppService, private router: Router) {}
@@ -33,4 +36,15 @@ export class NavbarComponent implements OnInit {
   onLogout(): void {
     this.authService.logout();
   }
+
+  onLogin(): void {
+    console.log("login",this.user);
+    if (this.user && this.user.role === 'companyadministrator') {
+      this.router.navigate(['/companyAdminProfile']);
+    } else {
+      this.router.navigate(['/']); 
+    }
+  }
+  
+  
 }

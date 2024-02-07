@@ -9,7 +9,6 @@ namespace MedicalEquipmentCompany.Service.Interface
         Result<PagedResult<EquipmentPickupDto>> GetPaged(int page, int pageSize);
         Result<EquipmentPickupDto> Create(EquipmentPickupDto user);
         Result<EquipmentPickupDto> Update(EquipmentPickupDto user);
-        Result<EquipmentPickupDto> UpdatePickup(EquipmentPickupDto equipmentPickup);
         Result<EquipmentPickupDto> Get(int id);
         Result Delete(int id);
         public Result<PagedResult<EquipmentPickupDto>> SearchByCompany(int id);

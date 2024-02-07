@@ -1,0 +1,48 @@
+/* Osnovni stil za tabelu */
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 30px auto; /* Postavite margin auto za centriranje i dodajte razmak */
+  }
+  
+  /* Stil za zaglavlje tabele */
+  thead {
+    background-color: #174679; /* Boja pozadine zaglavlja */
+    color: #ffffff; /* Boja teksta zaglavlja */
+  }
+  
+  /* Stil za redove u telu tabele */
+  tbody tr {
+    border-bottom: 1px solid #ddd; /* Linija između redova */
+  }
+  
+  /* Stil za ćelije u tabeli */
+  td, th {
+    padding: 12px;
+    text-align: center;
+  }
+  
+  /* Stil za redove koji se nalaze iznad poslednjeg reda */
+  tbody tr:not(:last-child) {
+    margin-bottom: 10px; /* Razmak između redova */
+  }
+  
+  /* Stil za parne redove */
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Boja pozadine parnih redova */
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 30px; /* Dodajte dodatni razmak iznad naslova */
+  }
+  
+  .reserved {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .not-reserved {
+    color: red;
+    font-weight: bold;
+  }

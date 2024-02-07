@@ -30,6 +30,8 @@ export class CompanyProfileComponent implements OnInit {
   workingHours!:CompanyWorkingHours[];
   myDatepicker!:any;
   daysdict = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+  reservedStatus: boolean = false;
+
 
   constructor(private service: CompanyProfileService, private appService:AppService, private route : ActivatedRoute) { }
 
@@ -63,13 +65,14 @@ export class CompanyProfileComponent implements OnInit {
     return (newDate.getHours()+':00')
   }
 
-  onReservePickup(pickup:EquipmentPickup){
+  onReservePickup(pickup: EquipmentPickup): void {
     pickup.isReserved = true;
-    this.appService.updateEquipmentPickup(pickup).subscribe((data)=>{
-      console.log('Successful update!')
-      alert('Successfuly reserved!')
-    })
+    this.appService.updateEquipmentPickup(pickup).subscribe((data) => {
+      console.log('Successful update!');
+      alert('Successfully reserved!');
+    });
   }
+  
 
   getCompanyProfile(): void {
     this.service.getCompanyProfile(this.companyId).subscribe({

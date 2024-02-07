@@ -1,7 +1,6 @@
 
 using MedicalEquipmentCompany.Model.Result;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity;
+
 using System.Net.Mail;
 
 namespace MedicalEquipmentCompany.Model;

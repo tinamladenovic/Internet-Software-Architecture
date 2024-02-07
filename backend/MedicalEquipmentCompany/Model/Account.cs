@@ -19,7 +19,6 @@ namespace MedicalEquipmentCompany.Model
         public string Enterprise { get; private set; } 
         public int Penalties { get; private set; }
 
-        public Account() { }
         public Account(string name, string surname, string email, string city, string country, string phone, string profession, string enterprise, long userId, bool isActivate, int penalties)
         {
             Name = name;

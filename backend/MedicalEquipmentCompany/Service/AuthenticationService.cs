@@ -28,7 +28,7 @@ namespace MedicalEquipmentCompany.Service
 
         public Result<AuthenticationTokensDto> Login(CredentialsDto credentials)
         {
-            var user = _userRepository.GetByName(credentials.Username);
+            var user = _userRepository.GetByName(credentials.Email);
             if (user == null || credentials.Password != user.Password || user.IsActive == false) return Result.Fail(FailureCode.NotFound);
 
             long personId;
@@ -84,7 +84,7 @@ namespace MedicalEquipmentCompany.Service
         {
             CredentialsDto dto = new CredentialsDto()
             {
-                Username = _userRepository.Get(id).Email,
+                Email = _userRepository.Get(id).Email,
                 Password = string.Empty
             };
             return dto;

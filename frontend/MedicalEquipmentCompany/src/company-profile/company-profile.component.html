@@ -36,7 +36,11 @@
       <h5>{{ item.dateAndTime.toLocaleString("en-GB") }}</h5>
       <br />
       <h5>{{ item.duration + "h" }}</h5>
-      <!-- <button class="pickup" (click)="onReservePickup(item)">Reserve</button> -->
+      <button class="pickup" *ngIf="!item.isReserved" (click)="onReservePickup(item)">
+        Reserve
+      </button>
+      <button class="reserved" *ngIf="item.isReserved">Reserved</button>
+      
     </div>
   </div>
 </div>

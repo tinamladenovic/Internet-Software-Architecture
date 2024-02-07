@@ -15,5 +15,6 @@ namespace MedicalEquipmentCompany.Repository.Interface
         Result<object> GetUserById(long userId);
         public Result GetUserById(int userId);
         User Update(User user);
+        User GetById(int id);
     }
 }

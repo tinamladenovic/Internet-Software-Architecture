@@ -22,7 +22,7 @@ namespace MedicalEquipmentCompany.Authentication
         {
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new("id", user.Id.ToString()),
-            new("username", user.Email),
+            new("email", user.Email),
             new("personId", personId.ToString()),
             new(ClaimTypes.Role, user.GetPrimaryRoleName())
         };

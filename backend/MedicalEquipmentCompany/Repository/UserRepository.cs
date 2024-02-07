@@ -73,7 +73,7 @@ namespace MedicalEquipmentCompany.Repository
                 {
                     var credentialsDto = new CredentialsDto
                     {
-                        Username = user.Email,
+                        Email = user.Email,
                         Password = user.Password,
                     };
 
@@ -113,6 +113,13 @@ namespace MedicalEquipmentCompany.Repository
                 throw new KeyNotFoundException(e.Message);
             }
             return (User)user;
+        }
+
+        public User GetById(int id)
+        {
+            User user = _dbContext.Users.FirstOrDefault(user => user.Id == id);
+            if (user == null) throw new KeyNotFoundException("Not found.");
+            return user;
         }
     }
 }

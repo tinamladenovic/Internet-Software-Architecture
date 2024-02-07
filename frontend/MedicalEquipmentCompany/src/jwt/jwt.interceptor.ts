@@ -1,4 +1,4 @@
-import { HttpEvent, HttpHandler, HttpHandlerFn, HttpInterceptor, HttpInterceptorFn, HttpRequest } from "@angular/common/http";
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { ACCESS_TOKEN } from "./constants";
@@ -19,5 +19,3 @@ export class JwtInterceptor implements HttpInterceptor {
     return next.handle(accessTokenRequest);
   }
 }
-
-

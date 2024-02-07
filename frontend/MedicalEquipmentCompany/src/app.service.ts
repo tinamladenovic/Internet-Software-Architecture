@@ -20,6 +20,8 @@ import { EquipmentPickup } from './model/equipment-pickup.model';
 import { EquipmentReservation } from './model/equipment-reservation.model';
 import { CompanyAdministratorProfile } from './model/company-administrator-profile.model';
 import { CompanyWorkingHours } from './model/company-working-hours.model';
+import { Account } from './model/account.model';
+
 
 @Injectable({
   providedIn: 'root',
@@ -27,10 +29,14 @@ import { CompanyWorkingHours } from './model/company-working-hours.model';
 export class AppService {
   user$ = new BehaviorSubject<User>({ username: '', id: 0, role: '' });
 
+  
+  private apiHost = 'http://localhost:4200/';
+
   constructor(
     private http: HttpClient,
     private tokenStorage: TokenStorage,
-    private router: Router
+    private router: Router,
+    
   ) {}
 
   login(login: Login): Observable<AuthenticationResponse> {
@@ -51,24 +57,18 @@ export class AppService {
     );
   }
 
-  checkIfUserExists(): void {
-    const accessToken = this.tokenStorage.getAccessToken();
-    if (accessToken == null) {
-      return;
-    }
-    this.setUser();
-  }
-
   setUser(): void {
     const jwtHelperService = new JwtHelperService();
     const accessToken = this.tokenStorage.getAccessToken() || '';
+
     const user: User = {
-      id: +jwtHelperService.decodeToken(accessToken).id,
+      id: jwtHelperService.decodeToken(accessToken).id,
       username: jwtHelperService.decodeToken(accessToken).username,
       role: jwtHelperService.decodeToken(accessToken)[
         'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
       ],
     };
+    console.log(user);
     this.user$.next(user);
   }
 
@@ -139,6 +139,23 @@ export class AppService {
       environment.apiHost + 'companyAdministratorProfile/' + id
     );
   }
+
+  getLoggedInUser(): Observable<User> {
+  return this.http.get<User>(
+    environment.apiHost + 'user/'
+  );
+}
+
+getCurrentUserRole(): Observable<string> {
+  return this.http.get<string>(`${this.apiHost}getCurrentUserRole`);
+}
+
+
+
+  getUserById(userId: number): Observable<CompanyAdministratorProfile> {
+    return this.http.get<CompanyAdministratorProfile>(`${environment.apiHost}user/${userId}`);
+  }
+
   getCompany(id:number): Observable<CompanyProfile> {
     return this.http.get<CompanyProfile>(
       environment.apiHost + 'company/' + id
@@ -156,31 +173,57 @@ export class AppService {
     return this.http.post<EquipmentReservation>(environment.apiHost + 'equipmentReservation' , reservation)
   }
 
-  getReservationsByUser(user: User): Observable<PagedResults<EquipmentReservation>> {
-    return this.http.get<PagedResults<EquipmentReservation>>(environment.apiHost + 'equipmentReservation/userReservations/'+ user.id)
+  deleteEquipment(id: number): Observable<Equipment> {
+    return this.http.delete<Equipment>(environment.apiHost + 'equipment/' + id);
   }
 
-  deleteReservation(id: number): Observable<EquipmentReservation> {
-    return this.http.delete<EquipmentReservation>(environment.apiHost + 'equipmentReservation/' + id);
-  }
-
-  getEquimpent(id:number): Observable<Equipment> {
-    return this.http.get<Equipment>(
-      environment.apiHost + 'equipment/' + id
+  addEquipment(equipment: Equipment): Observable<Equipment> {
+    return this.http.post<Equipment>(
+      environment.apiHost + 'equipment',
+      equipment
     );
   }
 
-  getEquipmentCount(id: number, wishedCount: number): Observable<boolean> {
-    const url = `${environment.apiHost}equipment/checkcount/${id}?wishedCount=${wishedCount}`;
-    
-    return this.http.get<boolean>(url);
+  updateEquipment(equipment: Equipment): Observable<Equipment> {
+    return this.http.put<Equipment>(
+      environment.apiHost + 'equipment/' + equipment.id,
+      equipment
+    );
   }
-  updateRate(interval: number): Observable<boolean> {
-    const url = `http://localhost:3000/send-coordinates`;
-    return this.http.post<boolean>(url,{
-      interval:interval,
-      pocetak: [19.7749461,45.244959],
-      kraj: [19.7424984,45.2502712]
-    });
+
+  getEquipmentReservations(){
+    return this.http.get<PagedResults<EquipmentReservation>>(
+      environment.apiHost + 'equipmentReservation'
+    );
   }
+
+  
+  getEquipmentPickups(){
+    return this.http.get<PagedResults<EquipmentPickup>>(
+      environment.apiHost + 'equipmentPickup'
+    );
+  }
+
+  updateEquipmentReservations(equipmentReservation: EquipmentReservation): Observable<EquipmentReservation> {
+    return this.http.put<EquipmentReservation>(
+      environment.apiHost + 'equipmentReservation/' + equipmentReservation.id,
+      equipmentReservation
+    );
+  }
+
+  getAccounts(){
+    return this.http.get<PagedResults<Account>>(
+      environment.apiHost + 'account'
+    );
+  }
+
+  updateAccounts(account: Account): Observable<Account> {
+    return this.http.put<Account>(
+      environment.apiHost + 'account/' + account.id,
+      account
+    );
+  }
+
+  
+  
 }

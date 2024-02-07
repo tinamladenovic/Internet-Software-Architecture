@@ -1,0 +1,93 @@
+#equipment {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+  #equipment-details {
+    display: flex;
+    align-items: flex-start; /* Početak postavljanja elemenata s vrha kontejnera */
+    justify-content: space-between; /* Rastojanje između elemenata */
+  
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+  .flex-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .equipmentForm {
+    width: 35%; /* Prilagodite širinu forme prema vašim potrebama */
+  }
+  
+  .table-container {
+    flex: 1; /* Tabela će zauzimati ostatak raspoloživog prostora u kontejneru */
+    overflow-x: auto;
+  }
+  
+  table {
+    border-collapse: collapse;
+    font-size: 1em;
+    font-family: sans-serif;
+    width: 100%; /* Set table width to 100% */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  thead tr {
+    background-color: #315149;
+    color: #ffffff;
+    text-align: center;
+  }
+   
+  h1 {
+    text-align: center;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: center;
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  tbody tr:last-of-type {
+    border-bottom: 2px solid #315149;
+  }
+  
+  tbody tr.active-row {
+    font-weight: bold;
+    color: #3f51b5;
+  }
+  
+  .delete-button, .edit-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+  }
+  
+  .delete-button {
+    color: red; /* Boja za dugme brisanja */
+  }
+  
+  .edit-button {
+    color: blue; /* Boja za dugme izmene */
+  }
+  
+  .add-button {
+    background-color: green; /* Boja za dugme dodavanja */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+  }
+  
+  

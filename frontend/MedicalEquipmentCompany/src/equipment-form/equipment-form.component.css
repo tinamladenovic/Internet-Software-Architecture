@@ -1,0 +1,28 @@
+div {
+    width: 400px;
+    display:flex;
+    gap: 20px;
+    flex-direction: column;
+    margin-bottom: 200px;
+ 
+}
+
+.mat-icon {
+    vertical-align: middle;
+}
+
+/* Stil za dugmad */
+button {
+    display: block; /* Čini dugmad blokovnim elementima */
+    margin: 0 auto; /* Centrira dugmad */
+    width: 150px; /* Postavlja željenu širinu dugmeta */
+    height: 30px; /* Postavlja željenu visinu dugmeta */
+    text-align: center; /* Centrira tekst unutar dugmeta */
+    
+  }
+  
+  /* Stil za dugmad u obliku mat-raised-button */
+  .mat-raised-button {
+    color: beige;
+  }
+  

@@ -15,9 +15,9 @@ public static class AuthConfiguration
 
     private static void ConfigureAuthentication(IServiceCollection services)
     {
-        var key = Environment.GetEnvironmentVariable("JWT_KEY") ?? "explorer_secret_key";
-        var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? "explorer";
-        var audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? "explorer-front.com";
+        var key = Environment.GetEnvironmentVariable("JWT_KEY") ?? "company_secret_key";
+        var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? "company";
+        var audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? "company-front.com";
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -52,9 +52,9 @@ public static class AuthConfiguration
     {
         services.AddAuthorization(options =>
         {
-            options.AddPolicy("systemAdminPolicy", policy => policy.RequireRole("systemadministrator"));
-            options.AddPolicy("companyAdminPolicy", policy => policy.RequireRole("companyadministrator"));
-            options.AddPolicy("registredUserPolicy", policy => policy.RequireRole("registreduser"));
+            options.AddPolicy("systemAdminPolicy", policy => policy.RequireRole("SystemAdministrator"));
+            options.AddPolicy("companyAdminPolicy", policy => policy.RequireRole("CompanyAdministrator"));
+            options.AddPolicy("registredUserPolicy", policy => policy.RequireRole("RegistredUser"));
         });
     }
 }

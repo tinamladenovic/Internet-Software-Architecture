@@ -1,0 +1,22 @@
+<div class="div-profile" *ngIf="companyProfile">
+    <div class="profileWrapper">
+      <div>
+        <h2>{{ companyProfile.name }}</h2>
+        <p><strong>Description:</strong> {{ companyProfile.description }}</p>
+        <p>
+          <strong>Address:</strong> {{ companyProfile.street }},
+          {{ companyProfile.city }}, {{ companyProfile.country }}
+        </p>
+        <p>
+          <strong>Average Rating:</strong>
+          {{ companyProfile.averageCompanyRating }}
+        </p>
+        
+      </div>
+      
+    </div>
+  
+    
+    
+  </div>
+  

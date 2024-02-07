@@ -58,8 +58,7 @@ namespace MedicalEquipmentCompany.Controller
         [HttpPost("login")]
         public ActionResult<AuthenticationTokensDto> Login([FromBody] CredentialsDto credentials)
         {
-            CredentialsDto dto = new CredentialsDto { Password = credentials.Password, Username = credentials.Username };
-            var result = _authenticationService.Login(dto);
+            var result = _authenticationService.Login(credentials);
             return CreateResponse(result);
         }
 

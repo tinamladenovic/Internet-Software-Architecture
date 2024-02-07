@@ -13,10 +13,10 @@ namespace MedicalEquipmentCompany.Repository
         {
             _dbContext = dbContext;
         }
-        public List<EquipmentReservation> SearchByUserId(int userId)
+
+        public object GetAll()
         {
-            var result = _dbContext.EquipmentReservations.Where(x => (x.UserId == userId)).ToList();
-            return result;
+            throw new NotImplementedException();
         }
     }
 }

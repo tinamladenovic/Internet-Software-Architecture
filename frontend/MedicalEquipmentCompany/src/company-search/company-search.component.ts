@@ -42,6 +42,8 @@ export class CompanySearchComponent implements OnInit {
         console.log(this.user)
       });
 
+      
+
   }
   getCompanies(){
     this.service.getCompanies().subscribe((comapnies:PagedResults<CompanyProfile>)=>{

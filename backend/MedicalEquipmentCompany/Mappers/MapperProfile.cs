@@ -23,6 +23,7 @@ namespace MedicalEquipmentCompany.Mappers
             CreateMap<LoyaltyClassEntryDto, LoyaltyClassEntry>().ReverseMap();
             CreateMap<LoyaltyProgramDto, LoyaltyProgram>().ReverseMap();
             CreateMap<ReplyDto, Reply>().ReverseMap();
+            CreateMap<StatisticDto, Statistic>().ReverseMap();
         }
     }
 }

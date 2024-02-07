@@ -38,6 +38,7 @@
       <h4>{{ company.city}}</h4>
       <button class="navButton" *ngIf="user && user.username !== ''"  (click)="viewCompanyProfile(company.id)" >View Profile</button>
       <button class="navButton" *ngIf="user && user.role == 'companyadministrator'" [routerLink]="['/equipmentPickup/'+company.id]" routerLinkActive="router-link-active"  >Add Pickup</button>
+      <button class="navButton" *ngIf="user && user.role == 'companyadministrator'" [routerLink]="['/statistic/'+company.id]" routerLinkActive="router-link-active" >Statistic</button>
     </div>
   </div>
 </div>

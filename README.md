@@ -1,2 +1,2 @@
-# Internet-Software-Architecture
-Projekat iz predmeta Internet Softverske Arhitekture.
+# ISA2023-team75
+Medical equpment company

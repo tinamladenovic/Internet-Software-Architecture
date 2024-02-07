@@ -8,8 +8,15 @@ import { CompanyProfileComponent } from '../company-profile/company-profile.comp
 import { AuthGuard } from './auth.guard';
 import { CompanyDatesComponent } from '../company-dates/company-dates.component';
 import { EquipmentPickupComponent } from '../equipment-pickup/equipment-pickup.component';
-import { UserHomePageComponent } from '../user-home-page/user-home-page.component';
-import { LocationTrackerComponent } from './location-tracker/location-tracker.component';
+import { CompanyadminHomepageComponent } from '../companyadmin-homepage/companyadmin-homepage.component';
+import { RegListComponent } from '../reg-list/reg-list.component';
+import { CompanyEquipmentComponent } from '../company-equipment/company-equipment.component';
+import { WorkingCalendarComponent } from '../working-calendar/working-calendar.component';
+import { EquipmentPickupListComponent } from '../equipment-pickup-list/equipment-pickup-list.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { NewReservationComponent } from '../new-reservation/new-reservation.component';
+import { StatisticComponent } from '../statistic/statistic.component';
+
 
 
 export const routes: Routes = [
@@ -20,7 +27,14 @@ export const routes: Routes = [
     {path: 'equipment', component: EquipmentSearchComponent},
     {path: 'companyProfile/:id', component: CompanyProfileComponent, canActivate:[AuthGuard]},
     {path: 'equipmentPickup/:id', component: EquipmentPickupComponent},
+    {path: 'equipmentPickup', component: EquipmentPickupComponent},
     {path: 'companyDates/:id/:eId', component: CompanyDatesComponent, canActivate:[AuthGuard]},
-    {path: 'UserHome', component: UserHomePageComponent, canActivate:[AuthGuard]},
-    {path: 'simulator', component: LocationTrackerComponent, canActivate:[AuthGuard]},
+    {path: 'companyAdminProfile', component: CompanyadminHomepageComponent},
+    {path: 'equipmentReservations', component: RegListComponent},
+    {path: 'companyEquipment', component: CompanyEquipmentComponent},
+    {path: 'workingCalendar', component: WorkingCalendarComponent},
+    {path: 'equipmentPickupList', component: EquipmentPickupListComponent},
+    {path: 'profile', component: ProfileComponent},
+    {path: 'newReservation', component: NewReservationComponent},
+    {path: 'statistic:id', component: StatisticComponent}
 ];

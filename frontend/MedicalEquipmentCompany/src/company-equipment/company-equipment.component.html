@@ -1,11 +1,12 @@
 <div id="equipment">
     <p>Equipments</p>
-    <hr>
+    
     <div id="equipments-details">
         <div>
             <table>
                 <thead>
                     <tr>
+                        
                         <th>Name</th>
                         <th>Type</th>
                         <th>Description</th>
@@ -16,13 +17,15 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let e of equipments">
+                        
                         <td>{{e.name}}</td>
                         <td>{{e.type}}</td>
                         <td>{{e.description}}</td>
                         <td>{{e.quantityInStock}}</td>
                         <td>{{e.price}}</td>
                         <td>
-                            <button class="navButton" class="navButton" *ngIf="user && user.role != 'companyadministrator'" (click)="reserveDate(company.id, e.id)">Reserve date</button>
+                            <button class="navButton" *ngIf="user && user.role != 'companyadministrator'" (click)="reserveDate(company.id, e.id)">Reserve date</button>
+
                         </td>
                     </tr>
                 </tbody>

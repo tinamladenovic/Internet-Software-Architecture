@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MedicalEquipmentCompany.Controller;
 
 [ApiController]
-[Route("api/")]
+[Route("api/user")]
 public class UserController : BaseApiController
 {
     private readonly IUserService _userService;
@@ -23,6 +23,14 @@ public class UserController : BaseApiController
         var result = _userService.GetPaged(page, pageSize);
         return CreateResponse(result);
     }
+
+    [HttpGet("{id:int}")]
+    public ActionResult<UserDto> Get(int id)
+    {
+        var result = _userService.GetById(id);
+        return CreateResponse(result);
+    }
+
 
     [HttpPost("{id:int}")]
     public ActionResult<UserDto> Create([FromBody] UserDto user)

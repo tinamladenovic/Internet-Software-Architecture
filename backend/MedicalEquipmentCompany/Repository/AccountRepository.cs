@@ -57,34 +57,5 @@ namespace MedicalEquipmentCompany.Repository
             _dbContext.SaveChanges();
             return account;
         }
-
-        public Account UpdatePenalties(Account updatedEntity)
-        {
-            try
-            {
-                var existingEntity = _dbContext.Accounts.Find(updatedEntity.Id);
-
-                if (existingEntity == null)
-                {
-                    throw new KeyNotFoundException($"Account with Id {updatedEntity.Id} not found.");
-                }
-
-                // Detach the existing entity before attaching the updated one
-                _dbContext.Entry(existingEntity).State = EntityState.Detached;
-
-                // Set the state of the updated entity to Modified
-                _dbContext.Entry(updatedEntity).State = EntityState.Modified;
-
-                // Save the changes
-                _dbContext.SaveChanges();
-
-                return updatedEntity;
-            }
-            catch (DbUpdateException e)
-            {
-                // Handle the exception or rethrow with more specific information
-                throw new ApplicationException($"Error updating EquipmentPickup: {e.Message}");
-            }
-        }
     }
 }

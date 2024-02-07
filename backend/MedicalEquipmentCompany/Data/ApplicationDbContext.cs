@@ -21,6 +21,7 @@ namespace MedicalEquipmentCompany.Data
         public DbSet<LoyaltyClassEntry> LoyaltyClassEntries { get; set; }
         public DbSet<LoyaltyProgram> LoyaltyPrograms { get; set; }
         public DbSet<Reply> Replies { get; set; }
+        public DbSet<Statistic> Statistics { get; set; }
 
 
 

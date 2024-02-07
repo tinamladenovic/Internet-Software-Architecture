@@ -9,7 +9,6 @@ using MedicalEquipmentCompany.Service;
 using MedicalEquipmentCompany.Service.Crud.Interface;
 using MedicalEquipmentCompany.Service.Interface;
 using Microsoft.EntityFrameworkCore;
-using RabbitMQ.Client;
 
 namespace Explorer.Tours.Infrastructure;
 
@@ -22,13 +21,11 @@ public static class AppStartup
         services.AddControllersWithViews();
         SetupCore(services);
         SetupInfrastructure(services);
-        services.AddSwaggerGen();
         return services;
     }
 
     private static void SetupCore(IServiceCollection services)
     {
-
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IAuthenticationService, AuthenticationService>();
         services.AddScoped<ITokenGenerator, JwtGenerator>();
@@ -42,6 +39,7 @@ public static class AppStartup
         services.AddScoped<IEquipmentPickupService, EquipmentPickupService>();
         services.AddScoped<IEquipmentReservationService, EquipmentReservationService>();
         services.AddScoped<ICompanyWorkingHoursService, CompanyWorkingHoursService>();
+        services.AddScoped<IStatisticService, StatisticService>();
     }
 
     private static void SetupInfrastructure(IServiceCollection services)
@@ -66,17 +64,13 @@ public static class AppStartup
         services.AddScoped<IEquipmentReservationRepository, EquipmentReservationRepository>();
         services.AddScoped<ICrudRepository<CompanyWorkingHours>, CrudDatabaseRepository<CompanyWorkingHours, ApplicationDbContext>>();
         services.AddScoped<ICompanyWorkingHoursRepository, CompanyWorkingHoursRepository>();
-        services.AddSingleton<ConnectionFactory>(new ConnectionFactory
-        {
-            HostName = "localhost", // Set your RabbitMQ server details
-        });
 
-        // SignalR Hub Configuration
-        services.AddSignalR();
-        services.AddHostedService<MessageService>();
-        // DbContext Configuration
+        services.AddScoped<ICrudRepository<Statistic>, CrudDatabaseRepository<Statistic, ApplicationDbContext>>();
+        services.AddScoped<IStatisticRepository, StatisticRepository>();
+
+
         services.AddDbContext<ApplicationDbContext>(opt =>
-            opt.UseNpgsql("MedicalEquipmentCompanyDb", x =>
-                x.MigrationsHistoryTable("__EFMigrationsHistory", "public")));
+        opt.UseNpgsql("MedicalEquipmentCompanyDb",
+            x => x.MigrationsHistoryTable("__EFMigrationsHistory", "public")));
     }
 }

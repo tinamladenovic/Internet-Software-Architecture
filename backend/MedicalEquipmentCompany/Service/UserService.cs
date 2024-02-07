@@ -2,6 +2,7 @@
 using FluentResults;
 using MedicalEquipmentCompany.Model;
 using MedicalEquipmentCompany.Model.Dtos;
+using MedicalEquipmentCompany.Repository;
 using MedicalEquipmentCompany.Repository.Interface;
 using MedicalEquipmentCompany.Service.Crud.Interface;
 using MedicalEquipmentCompany.Service.Interface;
@@ -26,6 +27,12 @@ namespace MedicalEquipmentCompany.Service
                 return Result.Fail("User not found.");
             }
 
+        }
+
+        public Result<UserDto> GetById(int id)
+        {
+            User user = _userRepository.GetById(id);
+            return MapToDto(user);
         }
     }
 }
